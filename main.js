@@ -1,5 +1,5 @@
 /* 
-👉 Kata is to sort courses array of objects in ascending order by using name key. 
+👉 Kata is to sort courses array of objects in ascending order by using name key. The objects inside the array will only include the key/value pairs: id: Number and name:String. If the function receive anything that is not an array it should retur null
 */
 
 //👉 Write the function your CodeWarriors will start with below here:
@@ -14,8 +14,12 @@ const courses = [
   ];// an array of objects
 
 
-  export function objectAscSorter(object) {
-  let sortedObjects = object.sort(function(a, b) {//creating a function within sort method with a and b parameters
+  export function objectAscSorter(array) {
+
+    if(Array.isArray(array) !== true){
+        return null
+    }
+  let sortedObjects = array.sort(function(a, b) {//creating a function within sort method with a and b parameters
       const nameA = a.name.toLowerCase();
       const nameB = b.name.toLowerCase();
   //making sure that function converts capital letters to lowercase that might be in key name so it wont affect the ASCII order
@@ -27,4 +31,7 @@ const courses = [
   });
   return sortedObjects;
 }
-  console.log(objectAscSorter(courses));
+
+const data = [];
+
+console.log(Array.isArray(data));
